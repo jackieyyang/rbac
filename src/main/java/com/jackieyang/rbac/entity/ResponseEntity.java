@@ -33,12 +33,15 @@ public class ResponseEntity<T> implements Serializable {
     private T data;
 
     /**
-     * Response Common Method - Success
+     * Response Common Method - Success with no data
      */
     public static <T> ResponseEntity<T> success() {
         return new ResponseEntity<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), null);
     }
 
+    /**
+     * Response Common Method - Success with data
+     */
     public static <T> ResponseEntity<T> success(T data) {
         return new ResponseEntity<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), data);
     }
