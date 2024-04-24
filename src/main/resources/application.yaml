@@ -4,7 +4,8 @@ server:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: true # camelCase
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # mybatis log
 
 spring:
   datasource:

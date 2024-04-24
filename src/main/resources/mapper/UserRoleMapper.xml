@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jackieyang.rbac.mapper.UserRoleMapper">
+    <!-- 查询全部用户角色 -->
+    <select id="queryUserRoles" resultType="com.jackieyang.rbac.entity.pojo.UserRole">
+        SELECT user_role_relation.id id,
+               user.id             user_id,
+               user.username       username,
+               role.id             role_id,
+               role.role_name      role_name,
+               role.role_desc      role_desc
+        FROM user
+            JOIN user_role_relation ON user.id = user_role_relation.user_id
+            JOIN role ON user_role_relation.role_id = role.id
+    </select>
+
+    <!-- 查询指定用户角色 -->
+    <select id="queryUserRoleByUserId" parameterType="Long" resultType="com.jackieyang.rbac.entity.pojo.UserRole">
+        SELECT user_role_relation.id id,
+               user.id             user_id,
+               user.username       username,
+               role.id             role_id,
+               role.role_name      role_name,
+               role.role_desc      role_desc
+        FROM user
+            JOIN user_role_relation ON user.id = user_role_relation.user_id
+            JOIN role ON user_role_relation.role_id = role.id
+        WHERE user.id = #{userId}
+    </select>
+</mapper>

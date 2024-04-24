@@ -1,5 +1,6 @@
-package com.jackieyang.rbac.entity.pojo;
+package com.jackieyang.rbac.entity.dto;
 
+import com.jackieyang.rbac.entity.pojo.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +10,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRole {
+public class UserRoleDTO {
     private Long id;
     private Long userId;
-    private Long roleId;
     private String username;
-    private String roleName;
-    private String roleDesc;
+    private List<Role> roles;
 }
