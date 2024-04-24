@@ -6,7 +6,12 @@
 3.下载jar包引入
 
 ## 快速开始
-引入后, 导入sql即可使用
+引入后, 导入sql
+
+在主类中添加注解, 其中com.example.demo换为自己的包名
+```java
+@ComponentScan(basePackages = {"com.example.demo", "com.jackieyang.rbac"})
+```
 
 提供@RbacIgnore注解, 用于忽略权限校验
 
