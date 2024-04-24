@@ -14,3 +14,9 @@ com.jackieyang.rbac.service.RbacService
 com.jackieyang.rbac.service.RolePermissionService
 com.jackieyang.rbac.service.RoleService
 com.jackieyang.rbac.service.UserRoleService
+
+com.jackieyang.rbac.service.impl.PermissionServiceImpl
+com.jackieyang.rbac.service.impl.RbacServiceImpl
+com.jackieyang.rbac.service.impl.RolePermissionServiceImpl
+com.jackieyang.rbac.service.impl.RoleServiceImpl
+com.jackieyang.rbac.service.impl.UserRoleServiceImpl
