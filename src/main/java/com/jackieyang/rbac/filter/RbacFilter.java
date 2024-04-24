@@ -13,7 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
 @RequiredArgsConstructor
-public class RbacFilter implements HandlerInterceptor {
+public class RbacFilter implements RbacAbstractFilter {
 
     private final RbacService rbacService;
 
@@ -23,7 +23,7 @@ public class RbacFilter implements HandlerInterceptor {
         // exclude specific request path
         if (isExclude(request.getRequestURI())) {
             return true;
-        };
+        }
 
         // pass if contains "RbacIgnore" in the request method
         if (handler instanceof HandlerMethod handlerMethod) {
@@ -44,12 +44,9 @@ public class RbacFilter implements HandlerInterceptor {
 
     private Boolean isExclude(String servletPath) {
         AntPathMatcher antPathMatcher = new AntPathMatcher();
-        if (antPathMatcher.match("/doc.html", servletPath) ||
-            antPathMatcher.match("/webjars/**", servletPath) ||
-            antPathMatcher.matchStart("/favicon.ico", servletPath) ||
-            antPathMatcher.match("/v3/api-docs/**", servletPath)) {
-            return true;
-        }
-        return false;
+        return antPathMatcher.match("/doc.html", servletPath) ||
+                antPathMatcher.match("/webjars/**", servletPath) ||
+                antPathMatcher.matchStart("/favicon.ico", servletPath) ||
+                antPathMatcher.match("/v3/api-docs/**", servletPath);
     }
 }

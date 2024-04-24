@@ -1,5 +1,6 @@
 package com.jackieyang.rbac.config;
 
+import com.jackieyang.rbac.filter.RbacAbstractFilter;
 import com.jackieyang.rbac.filter.RbacFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @RequiredArgsConstructor
 public class RbacConfig implements WebMvcConfigurer {
 
-    private final RbacFilter rbacFilter;
+    private final RbacAbstractFilter rbacFilter;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
