@@ -1,7 +1,6 @@
 package com.jackieyang.rbac.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.jackieyang.rbac.entity.dto.UserRoleDTO;
 import com.jackieyang.rbac.entity.pojo.UserRole;
 import com.jackieyang.rbac.entity.vo.RoleVO;
 import com.jackieyang.rbac.entity.vo.UserRoleVO;
@@ -10,7 +9,6 @@ import com.jackieyang.rbac.service.UserRoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -27,7 +25,7 @@ public class UserRoleServiceImpl implements UserRoleService {
         Map<Long, List<UserRole>> collectMap = userRoles.stream()
                 .collect(Collectors.groupingBy(UserRole::getUserId));
         return collectMap.values().stream()
-                .map(userRolesList -> getUserRoleVO(userRolesList))
+                .map(this::getUserRoleVO)
                 .collect(Collectors.toList());
     }
 
@@ -54,8 +52,7 @@ public class UserRoleServiceImpl implements UserRoleService {
                     RoleVO roleVO = BeanUtil.copyProperties(role, RoleVO.class);
                     roleVO.setId(role.getRoleId());
                     return roleVO;
-                })
-                .collect(Collectors.toList());
+                }).toList();
         userRoleVO.setRoles(roleVOList);
         return userRoleVO;
     }

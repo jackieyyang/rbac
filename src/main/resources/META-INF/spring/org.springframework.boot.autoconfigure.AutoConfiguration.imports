@@ -1,3 +1,16 @@
 com.jackieyang.rbac.config.RbacConfig
 
+com.jackieyang.rbac.controller.PermissionController
+com.jackieyang.rbac.controller.RoleController
+com.jackieyang.rbac.controller.RolePermissionController
+com.jackieyang.rbac.controller.UserRoleController
+
 com.jackieyang.rbac.filter.RbacFilter
+
+com.jackieyang.rbac.exception.ForbiddenExceptionHandler
+
+com.jackieyang.rbac.service.PermissionService
+com.jackieyang.rbac.service.RbacService
+com.jackieyang.rbac.service.RolePermissionService
+com.jackieyang.rbac.service.RoleService
+com.jackieyang.rbac.service.UserRoleService

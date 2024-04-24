@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jackieyang.rbac.mapper.RolePermissionMapper">
+
+    <!-- query all role and permission -->
+    <select id="queryRolePermissions" resultType="com.jackieyang.rbac.entity.pojo.RolePermission">
+        SELECT role_permission_relation.id id,
+               role.id                     role_id,
+               role.role_name              role_name,
+               role.role_desc              role_desc,
+               permission.id               permission_id,
+               permission.allow_path       allow_path,
+               permission.allow_method     allow_method,
+               permission.permission_desc  permission_desc
+        FROM role
+                 JOIN role_permission_relation ON role.id = role_permission_relation.role_id
+                 JOIN permission ON role_permission_relation.permission_id = permission.id
+    </select>
+
+    <!-- 查询指定用户角色 -->
+    <select id="queryRolePermissionByRoleId" parameterType="Long" resultType="com.jackieyang.rbac.entity.pojo.RolePermission">
+        SELECT role_permission_relation.id id,
+               role.id                     role_id,
+               role.role_name              role_name,
+               role.role_desc              role_desc,
+               permission.id               permission_id,
+               permission.allow_path       allow_path,
+               permission.allow_method     allow_method,
+               permission.permission_desc  permission_desc
+        FROM role
+            JOIN role_permission_relation ON role.id = role_permission_relation.role_id
+            JOIN permission ON role_permission_relation.permission_id = permission.id
+        WHERE role.id = #{roleId}
+    </select>
+</mapper>

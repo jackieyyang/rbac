@@ -18,21 +18,6 @@ CREATE TABLE `permission`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for permission_group
--- ----------------------------
-DROP TABLE IF EXISTS `permission_group`;
-CREATE TABLE `permission_group`  (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '权限组自增id',
-  `group_name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限组名称',
-  `group_desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限组描述',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of permission_group
--- ----------------------------
-
--- ----------------------------
 -- Table structure for permission_group_relation
 -- ----------------------------
 DROP TABLE IF EXISTS `permission_group_relation`;

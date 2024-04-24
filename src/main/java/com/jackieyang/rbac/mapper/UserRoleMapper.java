@@ -38,4 +38,17 @@ public interface UserRoleMapper {
     @Delete("delete from user_role_relation where user_id=#{userId} and role_id=#{roleId}")
     void deleteUserRoleByUserIdAndRoleId(Long userId, Long roleId);
 
+    /**
+     * delete user role by user id
+     * @param userId userId
+     */
+    @Delete("delete from user_role_relation where user_id=#{userId}")
+    void deleteUserRoleByUserId(Long userId);
+
+    /**
+     * delete user role by role id
+     * @param roleId roleId
+     */
+    @Delete("delete from user_role_relation where role_id=#{roleId}")
+    void deleteUserRoleByRoleId(Long roleId);
 }

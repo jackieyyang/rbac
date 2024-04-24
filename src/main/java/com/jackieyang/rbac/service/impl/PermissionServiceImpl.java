@@ -6,6 +6,7 @@ import com.jackieyang.rbac.entity.dto.PermissionDTO;
 import com.jackieyang.rbac.entity.pojo.Permission;
 import com.jackieyang.rbac.entity.vo.PermissionVO;
 import com.jackieyang.rbac.mapper.PermissionMapper;
+import com.jackieyang.rbac.mapper.RolePermissionMapper;
 import com.jackieyang.rbac.service.PermissionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,8 @@ import java.util.List;
 public class PermissionServiceImpl implements PermissionService {
 
     private final PermissionMapper permissionMapper;
+
+    private final RolePermissionMapper rolePermissionMapper;
 
     @Override
     public List<PermissionVO> queryPermission() {
@@ -45,7 +48,10 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public void deletePermissionById(Long permissionId) {
+        // delete permission table by permissionId
         permissionMapper.deletePermissionById(permissionId);
+        // delete role_permission table by permissionId
+        rolePermissionMapper.deleteRolePermissionByPermissionId(permissionId);
     }
 
 }

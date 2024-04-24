@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jackieyang.rbac.mapper.UserRoleMapper">
-    <!-- 查询全部用户角色 -->
+
+    <!-- query all user roles -->
     <select id="queryUserRoles" resultType="com.jackieyang.rbac.entity.pojo.UserRole">
         SELECT user_role_relation.id id,
                user.id             user_id,
@@ -16,7 +17,7 @@
             JOIN role ON user_role_relation.role_id = role.id
     </select>
 
-    <!-- 查询指定用户角色 -->
+    <!-- query specified user role by user id -->
     <select id="queryUserRoleByUserId" parameterType="Long" resultType="com.jackieyang.rbac.entity.pojo.UserRole">
         SELECT user_role_relation.id id,
                user.id             user_id,

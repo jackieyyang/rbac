@@ -1,5 +1,6 @@
 package com.jackieyang.rbac.controller;
 
+import com.jackieyang.rbac.annotation.RbacIgnore;
 import com.jackieyang.rbac.entity.dto.UserRoleDTO;
 import com.jackieyang.rbac.entity.pojo.ResponseEntity;
 import com.jackieyang.rbac.entity.vo.UserRoleVO;

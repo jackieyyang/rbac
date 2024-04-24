@@ -77,8 +77,8 @@ public class ResponseEntity<T> implements Serializable {
     /**
      * Response Common Method - Forbidden
      */
-    public static <T> ResponseEntity<T> forbidden() {
-        return new ResponseEntity<>(HttpStatus.FORBIDDEN.value(), HttpStatus.FORBIDDEN.getReasonPhrase(), null);
+    public static <T> ResponseEntity<T> forbidden(String message) {
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN.value(), "forbidden, " + message, null);
     }
 
 }

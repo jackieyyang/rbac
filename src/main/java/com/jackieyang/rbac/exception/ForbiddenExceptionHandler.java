@@ -18,7 +18,7 @@ public class ForbiddenExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler(value = ForbiddenException.class)
     public ResponseEntity<Object> forbiddenException(ForbiddenException e) {
-        return ResponseEntity.forbidden();
+        return ResponseEntity.forbidden(e.getMessage());
     }
 
 }
