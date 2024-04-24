@@ -1,14 +1,13 @@
 package com.jackieyang.rbac.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/rbac")
-public class RbacController {
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello";
-    }
+@RequiredArgsConstructor
+public class RolePermissionController {
 }

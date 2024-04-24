@@ -1,4 +1,4 @@
-package com.jackieyang.rbac.entity;
+package com.jackieyang.rbac.entity.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

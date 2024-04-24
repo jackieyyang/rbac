@@ -1,5 +1,3 @@
 com.jackieyang.rbac.config.RbacConfig
 
-com.jackieyang.rbac.controller.RbacController
-
 com.jackieyang.rbac.filter.RbacFilter

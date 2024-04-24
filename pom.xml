@@ -22,6 +22,8 @@
         <mysql.version>8.3.0</mysql.version>
         <mybatis.version>3.0.3</mybatis.version>
         <jedis.version>5.1.2</jedis.version>
+        <huTool.version>5.8.27</huTool.version>
+        <knife4j.version>4.4.0</knife4j.version>
     </properties>
 
     <dependencies>
@@ -47,7 +49,6 @@
             <version>${mybatis.version}</version>
         </dependency>
 
-
         <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,11 +68,30 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- hutool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${huTool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+
         <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
