@@ -27,13 +27,13 @@ public interface PermissionMapper {
      * @param permission permission
      */
     @Update("update permission set allow_path=#{allowPath}, allow_method=#{allowMethod}, permission_desc=#{permissionDesc} where id=#{id}")
-    void updatePermission(Permission permission);
+    void updatePermissionById(Permission permission);
 
     /**
      * delete permission by id
      * @param permissionId permissionId
      */
     @Delete("delete from permission where id=#{permissionId}")
-    void deletePermission(Long permissionId);
+    void deletePermissionById(Long permissionId);
 
 }

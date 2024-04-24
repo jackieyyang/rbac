@@ -40,12 +40,12 @@ public class PermissionServiceImpl implements PermissionService {
     public void updatePermission(PermissionDTO permissionDTO) {
         Permission permission = BeanUtil.copyProperties(permissionDTO, Permission.class);
         permission.setAllowMethod(permissionDTO.getAllowMethod().toString());
-        permissionMapper.updatePermission(permission);
+        permissionMapper.updatePermissionById(permission);
     }
 
     @Override
     public void deletePermissionById(Long permissionId) {
-        permissionMapper.deletePermission(permissionId);
+        permissionMapper.deletePermissionById(permissionId);
     }
 
 }
